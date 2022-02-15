@@ -1,24 +1,82 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Blog App
 
-Things you may want to cover:
+> Blog App Project. That Built by using Ruby on Rails.
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby on Rails
 
-* Configuration
+## Getting Started
 
-* Database creation
 
-* Database initialization
+To get a local copy up and running follow these simple example steps.
 
-* How to run the test suite
+Clone this repository:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+git clone https://github.com/luftedar/blog-app.git
+```
 
-* Deployment instructions
 
-* ...
+cd into folder:
+
+```
+cd blog-app
+```
+
+To get started, run following in the root directory:
+
+```
+gem install bundler
+```
+
+Install bundle
+
+```
+bundle install
+```
+
+Start Local Server
+```
+rails s
+```
+
+Run following to check linter errors:
+
+```
+rubocop
+```
+
+Auto fix the errors if available
+
+```
+rubocop -A
+```
+
+
+## Authors
+
+👤 **Orçun Uğur**
+
+- GitHub: [@githubhandle](https://github.com/luftedar)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/orcunugur)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- This project is built in Microverse's fifth module's first week.
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
