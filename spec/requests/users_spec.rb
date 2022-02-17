@@ -21,5 +21,9 @@ RSpec.describe 'Users', :type => :request do
     it "Response status correct" do
       expect(response).to have_http_status(:ok)
     end
+
+    it "Renders'index' template for users/show" do
+      expect(response).to render_template('index')
+    end
   end
 end
