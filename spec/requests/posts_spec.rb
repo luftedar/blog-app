@@ -11,5 +11,9 @@ RSpec.describe 'Posts', type: :request do
     it "Renders 'index' template for posts" do
       expect(response).to render_template('index')
     end
+
+    it "Checks if response body includes correct placeholder text" do
+      expect(response.body).to include("Show User's All Post")
+    end
   end
 end
