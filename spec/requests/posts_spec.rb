@@ -24,8 +24,12 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it "Renders 'show' tempalte for posts" do
+    it "Renders 'show' template for posts" do
       expect(response).to render_template('show')
+    end
+
+    it "Checks if response body includes correct placeholder text" do
+      expect(response.body).to include("Show User's Specific Post")
     end
   end
 end
