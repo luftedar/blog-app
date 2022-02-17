@@ -6,5 +6,9 @@ RSpec.describe 'Users', :type => :request do
     it "Successfuly get route" do
       expect(response).to have_http_status(:ok)
     end
+
+    it "renders 'index' template for users" do
+      expect(response).to render_template('index')
+    end
   end
 end
