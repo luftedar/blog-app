@@ -1,9 +1,9 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe 'Users', :type => :request do
+RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
-    before(:example) {get users_path} 
-    it "Successfuly get route" do
+    before(:example) { get users_path }
+    it 'Successfuly get route' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -11,19 +11,24 @@ RSpec.describe 'Users', :type => :request do
       expect(response).to render_template('index')
     end
 
-    it "Checks if users/index html elements rendered" do
-      expect(response.body).to include("User List Page")
+    it 'Checks if users/index html elements rendered' do
+      expect(response.body).to include('User List Page')
     end
   end
 
   describe 'GET /show' do
-    before(:example) {get users_path(1)}
-    it "Response status correct" do
+    before(:example) { get user_path(1) }
+
+    it 'Response status correct' do
       expect(response).to have_http_status(:ok)
     end
 
-    it "Renders'index' template for users/show" do
-      expect(response).to render_template('index')
+    it "Renders 'show' template for users" do
+      expect(response).to render_template('show')
+    end
+
+    it 'Checks if response body includes correct placeholder text' do
+      expect(response.body).to include('Specific User Page')
     end
   end
 end
