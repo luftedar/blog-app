@@ -1,10 +1,10 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     before(:example) { get user_posts_path(1) }
 
-    it "Checks if status correct" do
+    it 'Checks if status correct' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -12,7 +12,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('index')
     end
 
-    it "Checks if response body includes correct placeholder text" do
+    it 'Checks if response body includes correct placeholder text' do
       expect(response.body).to include("Show User's All Post")
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /show' do
     before(:example) { get user_post_path(1, 0o1) }
 
-    it "Checks if status correct" do
+    it 'Checks if status correct' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -28,7 +28,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('show')
     end
 
-    it "Checks if response body includes correct placeholder text" do
+    it 'Checks if response body includes correct placeholder text' do
       expect(response.body).to include("Show User's Specific Post")
     end
   end
