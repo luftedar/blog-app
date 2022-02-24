@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
   def load_last_five_comments
-    Comment.order('created_at Desc').limit(5)
+    comment.order('created_at Desc').limit(5)
   end
 
   private
