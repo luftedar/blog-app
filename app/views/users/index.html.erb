@@ -1,1 +1,12 @@
 <h1>User List Page</h1>
+
+<div class="users-container">
+  <% @users.each do |user| %>
+  <div class="user-frame">
+    <div>
+      <p><%= user.name %></p>
+      <p><%= user.posts_counter%></p>
+    </div>
+  </div>
+  <% end%>
+</div>
