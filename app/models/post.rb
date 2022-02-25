@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
 
   belongs_to :author, class_name: 'User', foreign_key: :user_id
-
+  after_save :update_posts_counter
   def load_last_five_comments
     comment.order('created_at Desc').limit(5)
   end
