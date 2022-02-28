@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: 'user_id'
 
 
-  def load_last_three_posts
-    posts.limit(3).order(created_at: :desc)
-   end
+  def recent_three_posts
+    Post.last(3)
+  end
 end
