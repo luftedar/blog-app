@@ -1,12 +1,13 @@
-<h1>User List Page</h1>
 
-<div class="users-container">
-  <% @users.each do |user| %>
-  <div class="user-frame">
-    <div>
-      <p><%= user.name %></p>
-      <p><%= user.posts_counter%></p>
+<% @users.each do |user| %>
+    <div class="user-container-index">
+      <div class="user-image-index">
+      </div>
+      <div class="user-data-index">
+        <%= link_to user_path(user.id) do %>
+        <h2><%= user.name%></h2>
+        <% end %>
+        <p>Number of posts: <%= user.posts_counter %></p>
+      </div>
     </div>
-  </div>
-  <% end%>
-</div>
+  <%end%>

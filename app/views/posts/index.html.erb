@@ -1,1 +1,33 @@
-<h1>Show User's All Post</h1>
+<div class="posts-container">
+    <div class="user-container">
+        <div class="user-img black-border">
+        </div>
+        <div class="user-overview black-border">
+            <h2><%= @user.name %></h2>
+            <span>Number of posts: <%= @user.posts_counter || 0 %></span>
+        </div>
+    </div>
+
+    <% @user.posts.each do |post| %>
+        <div class="posts-comments-overview">
+            <div class="post-overview black-border">
+                <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
+                <p><%= post.text %></p>
+                <span>Comments: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %></span>
+            </div>
+            <% if post.load_recent_five_comments.length > 0 %>
+                <div class="comments-container black-border">
+                    <% post.load_recent_five_comments.each do |comment| %>
+                        <p><%= comment.user.name %>: <%= comment.text %></p>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <div class="button-wrapper">
+        <button>
+            Pagination
+        </button>
+    </div>
+</div>
