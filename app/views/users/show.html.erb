@@ -1,30 +1,32 @@
-
-<div class="users_container">
-  <div class="users_image">
+<div class="user-show-container">
+  <div class="user-show-header">
+    <div class="user-show-image">
+      <%= image_tag("catboss.png", height: '150px', width: '100%', :style => "border-radius: 10px") %>
+    </div>
+    <div class="user-show-description">
+      <h2 class="user-show-name"><%= @user.name %></h2>          
+      <p class="user-show-posts">Number of Posts: <%= @user.posts_counter %></p>
+    </div>
   </div>
-  <div class="user_data">
-    <h2><%= @user.name%></h2>
-    <p>Number of posts: <%= @user.posts_counter%></p>
+  <div class="user-info-container">
+    <div class="user-bio">
+      <h2 class="bio-header">Biography</h2>
+      <p class="bio-desc"><%= @user.bio %></p>
+    </div>
+    <ul class="user-posts-lists">
+      <% @user.recent_three_posts.each do |userpost|%>
+        <li>
+          <h2> Post: <%= userpost.title%></h2>
+          <p><%= userpost.text %></p>
+          <div class="user-posts-lists-c-l">
+            <p>Comment(s): <%= userpost.comments_counter%></p>
+            <p>Likes(s): <%= userpost.likes_counter%></p>
+          </div>
+        </li>
+      <% end %>
+    </div>
+    <div class="see-posts-button">
+       <%= link_to "See all posts", user_posts_path(@user), {:class => "button-class"} %>
+    </div>
   </div>
-</div>
-
-<div class="user_c2">
-  <div class="user_data2">
-    <h2>Bio</h2>
-    <p class="bio"><%= @user.bio%></p>
-  </div>
-</div>
-
-<% @user.load_last_three_posts.each do |post| %>
-  <div class="comment_c"> 
-      <h2># Post : <%= post.title%></h2>
-      <p><%= post.text%></p>
-      <h3>Comment <%= post.comments_counter%>,  <span>Likes <%= post.likes_counter%></span></h3>
-  </div>
-<%end%>
-
-<div class="button-div">
-  <button class="button">
-      <%= link_to "See all posts", user_posts_path(@user), {:class => "button_class"} %>
-  </button>
 </div>
