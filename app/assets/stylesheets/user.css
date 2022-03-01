@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.user-list-item {
+  display: flex;
+  position: relative;
+  height: 150px;
+  margin: 20px 0;
+}
+
+.user-list-image {
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.user-list-description {
+  border: 1px solid #000;
+  border-radius: 30px;
+  margin-left: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+.user-list-posts {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
