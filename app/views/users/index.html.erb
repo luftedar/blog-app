@@ -4,7 +4,7 @@
     <% @users.each do |user| %>
       <li class="user-list-item">
           <div class="user-list-image">
-            <%= image_tag("catboss.png", height: '150px', width: '100%', :style => "border-radius: 10px") %>
+            <%= image_tag( "catboss.png", height: '150px', width: '100%', :style => "border-radius: 10px") %>
           </div>
           <div class="user-list-description">
         <%= link_to user_path(user.id) do %>

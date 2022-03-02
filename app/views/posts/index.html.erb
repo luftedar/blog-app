@@ -1,33 +1,30 @@
-<div class="posts-container">
-    <div class="user-container">
-        <div class="user-img black-border">
+<div class="posts-index-container">
+    <div class="posts-index-user-container">
+        <div class="posts-index-user-image">
+            <%= image_tag( "catboss.png", height: '150px', width: '100%', :style => "border-radius: 10px") %>
         </div>
-        <div class="user-overview black-border">
-            <h2><%= @user.name %></h2>
-            <span>Number of posts: <%= @user.posts_counter || 0 %></span>
+        <div class="posts-index-user-description">
+            <h2> <%= @user.name %> </h2>
+            <p class="posts-index-user-posts">Number of Posts: <%= @user.posts_counter %></p>
         </div>
     </div>
-
-    <% @user.posts.each do |post| %>
-        <div class="posts-comments-overview">
-            <div class="post-overview black-border">
-                <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
-                <p><%= post.text %></p>
-                <span>Comments: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %></span>
+    <% @posts.each do |post| %>
+        <div class="posts-index-posts-container">
+            
+            <h2> <%= link_to "#{post.title}", user_post_path(@user.id, post.id), class:"header-link" %>  </h2>
+            <p> <%= post.text %> </p>
+            <div class="posts-index-posts-c-l">
+                <p>Comment(s): <%= post.comments_counter%></p>
+                <p>Likes(s): <%= post.likes_counter%></p>
             </div>
-            <% if post.load_recent_five_comments.length > 0 %>
-                <div class="comments-container black-border">
-                    <% post.load_recent_five_comments.each do |comment| %>
-                        <p><%= comment.user.name %>: <%= comment.text %></p>
-                    <% end %>
-                </div>
+        </div>
+        <div class="posts-index-comments-container">
+            <% post.recent_comments.each do |comment| %>
+                <p><%= comment.user.name %>: <%= comment.text %></p>
             <% end %>
         </div>
     <% end %>
-
-    <div class="button-wrapper">
-        <button>
-            Pagination
-        </button>
-    </div>
+        <div class="see-posts-button">
+           <button class="button-class">Pagination</button>
+        </div>
 </div>
