@@ -5,6 +5,8 @@
 
 .posts-index-container {
   margin: 20px 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .posts-index-user-container {
@@ -55,4 +57,31 @@
 .header-link {
   text-decoration: none;
   color: #000;
+}
+
+.posts-show-container {
+  margin: 20px 100px;
+}
+
+.posts-show-post-container {
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.posts-show-description {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.posts-show-c-l {
+  display: flex;
+}
+
+.posts-show-comments {
+  margin-top: 25px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 20px;
 }
