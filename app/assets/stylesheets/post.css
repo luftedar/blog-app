@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.main {
+  margin: 20px 100px;
+}
+
 .posts-index-container {
   margin: 20px 100px;
   display: flex;
