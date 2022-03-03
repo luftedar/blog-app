@@ -8,6 +8,9 @@
             <p class="posts-index-user-posts">Number of Posts: <%= @user.posts_counter %></p>
         </div>
     </div>
+    <div class="button-class create-button">
+        <%= link_to "Create new post", new_user_post_path %>
+    </div>
     <% @posts.each do |post| %>
         <div class="posts-index-posts-container">
             
