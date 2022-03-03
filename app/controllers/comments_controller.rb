@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @new_comment = current_user.comments.new(
-      text :params.require(:comment).permit(:text)[:text],
-      user_id :current_user.id,
-      post_id :@post.id
+      text: params.require(:comment).permit(:text)[:text],
+      user_id: current_user.id,
+      post_id: @post.id
     )
     @new_comment.post_id = @post.id
     @new_comment.update_comments_counter

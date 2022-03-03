@@ -9,6 +9,9 @@
     </div>
     <div class="posts-show-post">
       <%= @post.text %>
+      <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
+        <%= form.submit "Like ", class: "like-button"%>
+      <% end %>
     </div>
   </div>
   <div class="posts-show-comments">
@@ -17,6 +20,6 @@
     <% end %>
   </div>
   <div>
-    <%= render partial: "new_comments", local: { post: @post } %>
+    <%= render partial: "create_comments", local: { post: @post } %>
   </div>
 </div>
