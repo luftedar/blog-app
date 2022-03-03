@@ -16,4 +16,7 @@
       <p><%= comment.user.name %>: <%= comment.text %></p>
     <% end %>
   </div>
+  <div>
+    <%= render partial: "new_comments", local: { post: @post } %>
+  </div>
 </div>
