@@ -8,9 +8,11 @@
         </div>
     </div>
     <div class="posts-show-post">
-      <%= @post.text %>
+      <p><%= @post.text %></p>
+    </div>
+    <div class="like-button-area">
       <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
-        <%= form.submit "Like ", class: "like-button"%>
+        <%= form.submit "Like ", class: "like-button button-class"%>
       <% end %>
     </div>
   </div>
