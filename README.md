@@ -38,9 +38,21 @@ Install bundle
 bundle install
 ```
 
+Setup and migrate the database
+
+```
+rails db:setup
+```
+
 Start Local Server
 ```
 rails s
+```
+
+Test the application
+
+```
+rspec
 ```
 
 Run following to check linter errors:
