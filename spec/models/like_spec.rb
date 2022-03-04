@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   it 'tests that Like model is created correctly' do
     like = Like.new
-    like.build_user(name: 'Orçun')
+    like.build_user(name: 'Orcun')
     like.build_post(text: '')
     expect(like).to be_valid
   end
