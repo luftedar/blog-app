@@ -24,7 +24,7 @@ class PostsController < ApplicationController
         if @new_post.save
           redirect_to "/users/#{@new_post.user.id}/posts/", flash: { alert: 'Posted new post' }
         else
-          flash.now[:error] = "Failed to create Post"
+          flash.now[:error] = 'Failed to create Post'
           render action: 'new'
         end
       end
