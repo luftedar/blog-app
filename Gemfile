@@ -7,6 +7,7 @@ gem 'devise'
 gem 'rails-controller-testing'
 gem 'rspec-rails', '~> 5.0.0'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'cancancan', '~> 1.9'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.2'
