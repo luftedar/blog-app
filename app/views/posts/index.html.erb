@@ -16,6 +16,9 @@
             
             <h2> <%= link_to "#{post.title}", user_post_path(@user.id, post.id), class:"header-link" %>  </h2>
             <p> <%= post.text %> </p>
+            <%if can? :destroy, post %>
+              <%= button_to "Delete Post", user_post_path(@user.id, post.id), :method => :delete, class: "del" %>
+            <%end%>
             <div class="posts-index-posts-c-l">
                 <p>Comment(s): <%= post.comments_counter%></p>
                 <p>Likes(s): <%= post.likes_counter%></p>

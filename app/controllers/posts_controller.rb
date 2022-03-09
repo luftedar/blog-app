@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @new_post.likes_counter = 0
     @new_post.comments_counter = 0
     @new_post.update_posts_counter
-    respond_to do |_format|
+    respond_to do |format|
       format.html do
         if @new_post.save
           redirect_to "/users/#{@new_post.user.id}/posts/", flash: { alert: 'Posted new post' }
@@ -29,6 +29,16 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    user = User.find(params[:user_id])
+    user.posts_counter -= 1
+    @post.destroy!
+    user.save
+    flash[:alert] = 'You have deleted this post!'
+    redirect_to user_posts_path(user.id)
   end
 
   def post_params
