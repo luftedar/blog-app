@@ -1,19 +1,14 @@
 <nav class="navbar">
   <div class="navbar-container">
     <% if user_signed_in? %>
-      <a href="/">BlogApp</a>
+      <a href="/">Home</a>
     <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-           <li class="nav-item">
-             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <div id="navbarNav">
+      <% if user_signed_in? %>
+         <li class="nav-item">
+           <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
+        </li>
+      <% end %>
     </div>
   </div>
 </nav>
