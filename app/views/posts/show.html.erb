@@ -19,6 +19,9 @@
   <div class="posts-show-comments">
     <% @comments.each do |comment| %>
       <p><%= comment.user.name %>: <%= comment.text %></p>
+      <% if can? :destroy, comment %>
+        <%= button_to 'Delete Comment', "/posts/:post_id/comments/#{params[:id]}", method: :delete, params: { comment_id: comment.id}, class: "button-class" %>
+      <%end%>
     <% end %>
   </div>
   <div>
