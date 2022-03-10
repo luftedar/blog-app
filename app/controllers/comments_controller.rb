@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
       render action: 'new'
     end
   end
-  
+
   def destroy
     @comment = Comment.find(params[:comment_id])
     post = Post.find_by(id: @comment.post_id)
