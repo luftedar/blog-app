@@ -5,7 +5,12 @@
     </div>
     <div class="user-show-description">
       <h2 class="user-show-name"><%= @user.name %></h2>          
-      <p class="user-show-posts">Number of Posts: <%= @user.posts_counter %></p>
+       <p>Number of posts : 
+       <%if @user.posts_counter === nil%>
+        <%=0%>
+        <%else%>
+        <%=@user.posts_counter%>
+      <%end  %></p>
     </div>
   </div>
   <div class="user-info-container">

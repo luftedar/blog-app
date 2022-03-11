@@ -1,19 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  it 'tests that Like model is created correctly' do
-    like = Like.new
-    like.build_user(name: 'Orcun')
-    like.build_post(text: '')
-    expect(like).to be_valid
+  before(:each) do
+    @user = User.create(id: 1, name: 'Orcun', photo: 'Cat.png',
+                        bio: 'Test Bio')
+    @post = Post.create(user: @user, title: 'Test title', text: 'Test Text', likes_counter: 5)
+    @like = Like.new(user_id: @user.id, post_id: @user.id)
   end
 
-  it 'updates a posts likes correctly' do
-    user = User.new(name: 'Tom', posts_counter: 0)
-    user2 = User.create!(name: 'Lilly', posts_counter: 0)
-    post = user2.posts.create!(title: 'Post1', text: 'This is a post', likes_counter: 0, comments_counter: 0)
-    post.likes.create!(user:)
-    post.likes_counter = post.likes.length
-    expect(post.likes_counter).to eql(1)
+  describe 'Tests' do
+    it 'validates the user_id' do
+      expect(@like.user_id).to eq(1)
+    end
+
+    it 'validates the post_id' do
+      expect(@like.post_id).to eq(1)
+    end
+  end
+
+  describe 'like model methods tests' do
+    it 'should increment likes_counter' do
+      @like.save
+      expect(@post.likes_counter).to eq(5)
+    end
   end
 end

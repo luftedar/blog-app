@@ -10,7 +10,12 @@
         <%= link_to user_path(user.id) do %>
             <h2 class="user-list-name"><%= user.name %></h2>          
         <% end %>
-            <p class="user-list-posts">Number of Posts: <%= user.posts_counter %></p>
+            <p class="user-list-posts">Number of Posts: 
+              <%if user.posts_counter === nil%>
+              <%=0%>
+              <%else%>
+              <%=user.posts_counter%>
+              <%end  %>
           </div>
       </li>
     <% end %>
