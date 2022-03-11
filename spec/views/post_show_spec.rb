@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Post_Index', type: :feature do
-  describe 'post&user' do
+RSpec.describe 'Post_Show', type: :feature do
+  describe 'Post&User' do
     before(:each) do
       @user1 = User.create(name: 'first', password: '123456', bio: 'I am the first user',
                            email: 'first@first.com', confirmed_at: Time.now)
@@ -27,48 +27,35 @@ RSpec.describe 'Post_Index', type: :feature do
       @comment2 = Comment.create(text: 'This is the second comment', user: User.first, post: Post.first)
       @comment3 = Comment.create(text: 'This is the third comment', user: User.first, post: Post.first)
 
-      visit user_posts_path(@user1)
+      visit user_post_path(@user1, @post1)
     end
 
-    it 'shows user photo' do
-      image = page.all('img')
-      expect(image.size).to eql(1)
-    end
-
-    it 'shows the username' do
+    it 'shows the post owner' do
       expect(page).to have_content('first')
     end
 
-    it "Post's length" do
-      post = Post.all
-      expect(post.size).to eql(3)
-    end
-
-    it 'shows post title' do
-      expect(page).to have_content('Second Post')
-      visit user_session_path
-    end
-
-    it "can see some of the post's body." do
-      expect(page).to have_content 'This is the first post'
-    end
-
-    it 'can see the first comments on a post' do
-      expect(page).to have_content 'This is the first comment for the first post'
-    end
-
-    it 'can see how many comments a post has.' do
+    it 'shows the number of comments' do
       post = Post.first
       expect(page).to have_content(post.comments_counter)
     end
 
-    it 'can see how many likes a post has.' do
+    it 'shows the post title' do
+      expect(page).to have_content('This is the first comment for the first post')
+    end
+
+    it 'shows the number of likes' do
       post = Post.first
       expect(page).to have_content(post.likes_counter)
     end
 
-    it "When I click on a post, it redirects me to that post's show page." do
-      expect(page).to have_content 'This is the third post'
+    it "can see the post's body" do
+      expect(page).to have_content('This is the first comment')
+    end
+
+    it 'username of the comment works' do
+      post = Post.first
+      comment = post.comments.first
+      expect(page).to have_content(comment.user.name)
     end
   end
 end
