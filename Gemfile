@@ -5,6 +5,8 @@ ruby '3.1.0'
 
 gem 'cancancan', '~> 1.9'
 gem 'devise'
+gem 'oj'
+gem 'rabl'
 gem 'rails-controller-testing'
 gem 'rspec-rails', '~> 5.0.0'
 gem 'rubocop', '>= 1.0', '< 2.0'

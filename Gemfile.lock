@@ -148,6 +148,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
+    oj (3.13.11)
     orm_adapter (0.5.0)
     parallel (1.21.0)
     parser (3.1.0.0)
@@ -156,6 +157,8 @@ GEM
     public_suffix (4.0.6)
     puma (5.6.2)
       nio4r (~> 2.0)
+    rabl (0.15.0)
+      activesupport (>= 2.3.14)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -281,8 +284,10 @@ DEPENDENCIES
   devise
   importmap-rails
   jbuilder
+  oj
   pg (~> 1.1)
   puma (~> 5.0)
+  rabl
   rails (~> 7.0.2, >= 7.0.2.2)
   rails-controller-testing
   rspec-rails (~> 5.0.0)
