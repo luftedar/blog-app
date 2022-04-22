@@ -4,6 +4,8 @@
 
 > Blog App Project. That Built by using Ruby on Rails.
 
+![screenshot](./app_screenshot.png)
+
 ## Built With
 
 - Ruby on Rails
